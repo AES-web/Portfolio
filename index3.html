@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio complet d’Eulèche Stanislas Akpovi : profil, parcours, compétences, projets et contact.">
+    <meta name="theme-color" content="#061923">
+    <title>Portfolio — Eulèche Stanislas Akpovi</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="main.js" defer></script>
+    <style>
+        .index3-frame { overflow: visible; }
+        .index3-frame .site-header { position: sticky; top: 0; border-bottom: 1px solid var(--line); }
+        .index3-frame .page-main { padding-top: 40px; }
+        .index3-frame main section[id] { scroll-margin-top: 88px; }
+        .index3-frame .page-section { min-height: 72vh; padding-bottom: 48px; }
+        .index3-frame .page-hero { min-height: 24vh; display: flex; flex-direction: column; justify-content: center; margin-bottom: 28px; }
+        .index3-frame .about-page-panel { max-width: 950px; margin-inline: auto; }
+        .index3-frame .page-columns { max-width: 1020px; margin-inline: auto; grid-template-columns: 1.4fr .8fr; }
+        .index3-frame .skills-detail-grid, .index3-frame .project-grid { max-width: 1020px; margin-inline: auto; }
+        .index3-frame .detail-note { max-width: 1020px; margin: 15px auto 0; padding-top: 12px; }
+        .index3-frame .contact-card { margin-bottom: 25px; }
+        .index3-frame .home-intro { max-width: 560px; margin: 0 auto; padding: 25px 0 15px; text-align: center; }
+        .index3-frame .home-intro .hero-actions { justify-content: center; }
+        .index3-frame .home-social { position: static; display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
+        .index3-frame .home-social a { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid var(--cyan); border-radius: 50%; color: var(--cyan); }
+        .index3-frame .home-social a:hover { background: var(--cyan); color: var(--page); }
+        .index3-frame .home-social svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+        .index3-frame .section-nav { display: flex; justify-content: center; gap: 12px; margin: 0 auto; padding: 18px 0 0; }
+        .index3-frame .section-nav a { color: var(--cyan); font-size: 10px; font-weight: 700; }
+        .index3-frame .section-nav a:hover { color: var(--text); }
+        .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--panel-card); transition: transform .2s ease, border-color .2s ease; }
+        .project-card:hover { transform: translateY(-3px); border-color: var(--cyan); }
+        .project-art { position: relative; display: grid; min-height: 190px; place-items: center; overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(ellipse at 50% 45%, rgba(0, 184, 232, .11), transparent 58%), #071a26; }
+        .project-art::before { position: absolute; inset: 0; background-image: linear-gradient(rgba(0, 184, 232, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 184, 232, .045) 1px, transparent 1px); background-size: 22px 22px; content: ""; }
+        .project-art svg { position: relative; z-index: 1; width: min(80%, 330px); height: 125px; overflow: visible; }
+        .project-art svg text { fill: var(--text); font-family: var(--body); font-size: 9px; font-weight: 700; }
+        .project-art svg .muted-label { fill: var(--muted); font-size: 7px; font-weight: 500; }
+        .project-art svg .node { fill: var(--panel-light); stroke: var(--cyan); stroke-width: 1.5; }
+        .project-art svg .soft-node { fill: #0a2635; stroke: #1b5973; stroke-width: 1.2; }
+        .project-art svg .link { fill: none; stroke: var(--cyan); stroke-width: 1.5; }
+        .project-art svg .secondary-link { fill: none; stroke: #5b9bae; stroke-width: 1; stroke-dasharray: 4 4; }
+        .project-index { position: absolute; z-index: 2; right: 12px; bottom: 10px; color: var(--cyan); font-size: 8px; font-weight: 800; letter-spacing: .1em; }
+        .project-body { padding: 17px 18px 18px; }
+        .project-type { margin-bottom: 6px; color: var(--cyan); font-size: 8px; font-weight: 800; letter-spacing: .1em; }
+        .project-body h3 { margin-bottom: 8px; font-size: 15px; line-height: 1.35; }
+        .project-body > p:not(.project-type) { min-height: 72px; margin-bottom: 13px; color: var(--muted); font-size: 10px; line-height: 1.65; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .project-tags span { padding: 4px 7px; border: 1px solid var(--line); border-radius: 3px; color: var(--cyan); font-size: 8px; }
+        .project-disclaimer { max-width: 1020px; margin: 13px auto 0; color: var(--muted); font-size: 9px; text-align: center; }
+        @media (max-width: 720px) {
+            .index3-frame .site-header { position: sticky; }
+            .index3-frame .page-main { padding: 27px 16px 30px; }
+            .index3-frame .page-section { min-height: 0; padding-bottom: 36px; }
+            .index3-frame .page-columns { grid-template-columns: 1fr; }
+            .index3-frame .page-hero { min-height: 0; }
+            .index3-frame .section-nav { flex-wrap: wrap; }
+            .project-grid { grid-template-columns: 1fr; }
+            .project-art { min-height: 175px; }
+        }
+        @media (max-width: 480px) {
+            .index3-frame .page-main { padding: 26px 13px 25px; }
+            .index3-frame .about-page-panel { padding: 23px 17px; }
+            .index3-frame .about-page-panel .about-content { grid-template-columns: 1fr; justify-items: center; gap: 20px; text-align: center; }
+            .index3-frame .about-page-panel .about-focus { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-frame index3-frame">
+        <header class="site-header">
+            <a class="brand" href="#accueil" aria-label="Retour à l’accueil — Eulèche Akpovi">Eulèche<span>.</span></a>
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation">
+                <span></span><span></span>
+            </button>
+            <nav class="navigation" id="navigation" aria-label="Navigation des sections">
+                <a href="#accueil" aria-current="page">Accueil</a>
+                <a href="#apropos">À propos</a>
+                <a href="#parcours">Parcours</a>
+                <a href="#competences">Compétences</a>
+                <a href="#projets">Mes projets</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main class="page-main">
+            <section class="page-section" id="accueil">
+                <div class="home-intro">
+                    <p class="eyebrow"><span class="availability-dot"></span> SYSTÈMES · RÉSEAUX · CYBERSÉCURITÉ</p>
+                    <h1>Bonjour, je suis<br><span class="accent">Eulèche Akpovi</span></h1>
+                    <p class="hero-role">Administrateur systèmes &amp; réseaux</p>
+                    <p class="hero-description">J’administre et supervise des environnements informatiques, des serveurs aux réseaux d’entreprise, avec une attention particulière à leur fiabilité et à leur sécurité.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#contact">Me contacter <span aria-hidden="true">↘</span></a>
+                        <a class="button button-secondary" href="#parcours">Voir mon parcours</a>
+                    </div>
+                    <nav class="home-social" aria-label="Liens rapides">
+                        <a href="mailto:eulechea@gmail.com" aria-label="Envoyer un courriel à Eulèche Akpovi">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16v11H4zM4.5 7l7.5 6 7.5-6"/></svg>
+                        </a>
+                        <a href="tel:+2290167085475" aria-label="Appeler Eulèche Akpovi">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.8 10 7l-2 2c1.2 2.4 2.8 4 5.2 5.2l2-2 3.2 3-1.6 3.1c-.4.7-1.2 1-2 .8-6.1-1.4-10.3-5.6-11.7-11.7-.2-.8.1-1.6.8-2z"/></svg>
+                        </a>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="page-section" id="apropos">
+                <div class="page-hero">
+                    <p class="eyebrow">QUI SUIS-JE ?</p>
+                    <h1>À propos de <span class="accent">moi</span></h1>
+                    <p>Un profil polyvalent, construit autour des systèmes, des réseaux et du support informatique.</p>
+                </div>
+                <div class="page-panel about-page-panel">
+                    <div class="about-content">
+                        <div class="portrait-frame portrait-large" role="img" aria-label="Emplacement réservé à la photo professionnelle d’Eulèche Akpovi">
+                            <span class="portrait-initials" aria-hidden="true">EA</span>
+                            <span class="portrait-silhouette" aria-hidden="true"></span>
+                        </div>
+                        <div class="about-copy">
+                            <p class="eyebrow">EULÈCHE STANISLAS AKPOVI · BÉNIN</p>
+                            <h2>Administrateur systèmes <span class="accent">&amp; réseaux</span></h2>
+                            <p>Je suis un professionnel de l’informatique diplômé en réseaux informatiques et télécommunications. Mon expérience m’a conduit du câblage et de la configuration réseau à l’administration de serveurs, à la supervision et au support des utilisateurs.</p>
+                            <p>Dans mes missions, je contribue à la disponibilité des services, à la prise en charge des incidents et à une exploitation structurée des environnements informatiques.</p>
+                            <p>Je poursuis actuellement un Master en sécurité informatique afin d’approfondir mes connaissances en protection des infrastructures et des systèmes.</p>
+                        </div>
+                    </div>
+                    <div class="about-focus">
+                        <article><span class="focus-number">01</span><h3>Fiabilité</h3><p>Surveiller les services et faciliter le diagnostic des anomalies.</p></article>
+                        <article><span class="focus-number">02</span><h3>Méthode</h3><p>Documenter les environnements et structurer l’exploitation.</p></article>
+                        <article><span class="focus-number">03</span><h3>Sécurité</h3><p>Appliquer les bonnes pratiques systèmes et réseau.</p></article>
+                    </div>
+                </div>
+                <nav class="section-nav" aria-label="Continuer la visite"><a href="#parcours">Parcours suivant ↓</a></nav>
+            </section>
+
+            <section class="page-section" id="parcours">
+                <div class="page-hero">
+                    <p class="eyebrow">EXPÉRIENCE &amp; FORMATION</p>
+                    <h1>Mon <span class="accent">parcours</span></h1>
+                    <p>Des expériences de terrain, du support informatique à l’administration des systèmes et des réseaux.</p>
+                </div>
+                <div class="page-columns">
+                    <section class="page-panel">
+                        <div class="panel-heading page-panel-heading"><p class="eyebrow">EXPÉRIENCE PROFESSIONNELLE</p><h2>Expérience</h2></div>
+                        <div class="journey-list journey-list-large">
+                            <article class="journey-card"><span class="journey-date">Mai 2024 — Sept. 2026</span><h3>Assistant SysAdmin</h3><p>Goelers Solutions Africa</p><small>Supervision des services et équipements, administration de serveurs et gestion des sauvegardes. Suivi des alertes et demandes dans Jira, analyse des journaux et assistance technique à distance.</small></article>
+                            <article class="journey-card"><span class="journey-date">Fév. 2022 — Nov. 2024</span><h3>Technicien Systèmes &amp; Réseaux</h3><p>Goelers Solutions Africa</p><small>Installation de postes et serveurs, raccordement du réseau local, configuration de switches et routeurs, segmentation VLAN et administration Active Directory.</small></article>
+                            <article class="journey-card"><span class="journey-date">Fév. 2023 — Nov. 2024</span><h3>Technicien support IT</h3><p>Light Engineering (LECAS)</p><small>Déploiement de postes et services Windows, mise en place du domaine, serveur IIS pour l’ERP, partage de fichiers et stockage NAS.</small></article>
+                            <article class="journey-card"><span class="journey-date">2020 — 2022</span><h3>Technicien réseau · Missions freelance</h3><p>Bénin</p><small>Virtualisation et serveurs VPS, câblage réseau et configurations de routage OSPF et EIGRP.</small></article>
+                            <article class="journey-card"><span class="journey-date">2019 — 2020</span><h3>Téléconseiller / Analyste base de données VLR</h3><p>Média Contact Bénin</p><small>Vérification de la conformité des numéros dans la base VLR de MTN Bénin.</small></article>
+                            <article class="journey-card"><span class="journey-date">Avr. — Juil. 2019</span><h3>Stagiaire réseau · Télécommunications</h3><p>MTN Bénin · Direction générale</p><small>Appui à la maintenance et à la sauvegarde de données de transmission sur des équipements télécoms, ainsi qu’à une intervention de câblage réseau.</small></article>
+                        </div>
+                    </section>
+                    <section class="page-panel">
+                        <div class="panel-heading page-panel-heading"><p class="eyebrow">ÉTUDES</p><h2>Formation</h2></div>
+                        <div class="journey-list journey-list-large">
+                            <article class="journey-card"><span class="journey-date">2026 — En cours</span><h3>Master 1 en Sécurité Informatique</h3><p>ESGIS · Jéricho, Bénin</p></article>
+                            <article class="journey-card"><span class="journey-date">2019</span><h3>Licence professionnelle d’État</h3><p>Réseaux, Systèmes et Sécurité Informatique · ESGIS · Jéricho, Bénin</p></article>
+                            <article class="journey-card"><span class="journey-date">2014</span><h3>Baccalauréat, série C</h3><p>C.S. Grande Académie · Abomey-Calavi, Bénin</p></article>
+                        </div>
+                        <div class="language-box"><strong>Langues</strong><span>Français · Anglais</span></div>
+                    </section>
+                </div>
+                <nav class="section-nav" aria-label="Continuer la visite"><a href="#competences">Compétences suivantes ↓</a></nav>
+            </section>
+
+            <section class="page-section" id="competences">
+                <div class="page-hero">
+                    <p class="eyebrow">DOMAINES TECHNIQUES</p>
+                    <h1>Mes <span class="accent">compétences</span></h1>
+                    <p>Compétences et outils mobilisés dans mes expériences, selon les technologies et les contextes d’intervention.</p>
+                </div>
+                <div class="skills-detail-grid">
+                    <article class="page-panel skill-detail"><span class="skill-number">01 / SYSTÈMES</span><h2>Serveurs &amp; identité</h2><p>Administration et exploitation d’environnements Windows et Linux.</p><ul><li>Windows Server, Active Directory, GPO</li><li>Ubuntu, Debian, CentOS / Rocky Linux</li><li>DNS, DHCP, comptes et droits d’accès</li><li>Sauvegarde, restauration, services web et fichiers</li></ul></article>
+                    <article class="page-panel skill-detail"><span class="skill-number">02 / RÉSEAUX</span><h2>Connectivité &amp; équipements</h2><p>Configuration, maintenance et diagnostic des réseaux d’entreprise.</p><ul><li>TCP/IP, IPv4, adressage et sous-réseautage</li><li>Switches, routeurs, VLAN et STP</li><li>MikroTik, Aruba, Netgear, TP-Link</li><li>OSPF, BGP, EIGRP, VPN IPsec / SSL</li></ul></article>
+                    <article class="page-panel skill-detail"><span class="skill-number">03 / EXPLOITATION</span><h2>Supervision &amp; assistance</h2><p>Suivi des systèmes, des alertes et des incidents du diagnostic à leur prise en charge.</p><ul><li>Zabbix, PRTG, Wireshark</li><li>GLPI, Jira et suivi des tickets</li><li>Analyse de journaux et rapports d’incident</li><li>Support utilisateurs et documentation technique</li></ul></article>
+                    <article class="page-panel skill-detail"><span class="skill-number">04 / OUTILS</span><h2>Automatisation &amp; sécurité</h2><p>Scripts et outils utilisés pour accompagner l’administration et l’analyse.</p><ul><li>PowerShell, scripts Python</li><li>Ansible — notions</li><li>Proxmox, Hyper-V</li><li>Nmap, Metasploit, Burp Suite</li></ul></article>
+                </div>
+                <p class="skills-note detail-note">Les outils de sécurité sont présentés dans un cadre d’apprentissage et d’usage autorisé. Le niveau de maîtrise dépend des technologies et des contextes.</p>
+                <nav class="section-nav" aria-label="Continuer la visite"><a href="#projets">Voir mes images et projets ↓</a></nav>
+            </section>
+
+            <section class="page-section" id="projets">
+                <div class="page-hero">
+                    <p class="eyebrow">IMAGES &amp; RÉALISATIONS</p>
+                    <h1>Mes Images / <span class="accent">Projets lab</span></h1>
+                    <p>Quelques missions techniques présentées sous forme de fiches illustrées, avec leur contexte et les outils associés.</p>
+                </div>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <div class="project-art">
+                            <svg viewBox="0 0 320 125" role="img" aria-label="Schéma illustrant un routeur relié à un switch et à des segments réseau">
+                                <path class="link" d="M74 62H124M196 62H244M160 85V103H114M160 85V103H207"/>
+                                <rect class="node" x="22" y="42" width="52" height="40" rx="6"/><text x="48" y="59" text-anchor="middle">ROUTEUR</text><text class="muted-label" x="48" y="72" text-anchor="middle">WAN</text>
+                                <rect class="node" x="124" y="42" width="72" height="40" rx="6"/><text x="160" y="59" text-anchor="middle">SWITCH</text><text class="muted-label" x="160" y="72" text-anchor="middle">VLAN</text>
+                                <rect class="soft-node" x="76" y="101" width="76" height="20" rx="4"/><text class="muted-label" x="114" y="114" text-anchor="middle">POSTES CLIENTS</text>
+                                <rect class="soft-node" x="169" y="101" width="76" height="20" rx="4"/><text class="muted-label" x="207" y="114" text-anchor="middle">SERVEURS</text>
+                                <circle cx="160" cy="62" r="3" fill="var(--cyan)"/>
+                            </svg>
+                            <span class="project-index">PROJET 01</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-type">RÉSEAUX D’ENTREPRISE</p>
+                            <h3>Structuration d’un réseau local</h3>
+                            <p>Présentation d’une mission de raccordement et d’organisation du réseau : équipements d’interconnexion, segmentation en VLAN et gestion des accès au domaine pour structurer les échanges entre postes et serveurs.</p>
+                            <div class="project-tags"><span>VLAN</span><span>MikroTik</span><span>Active Directory</span></div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-art">
+                            <svg viewBox="0 0 320 125" role="img" aria-label="Illustration d’un tableau de bord de supervision avec indicateurs et courbe">
+                                <rect class="soft-node" x="40" y="14" width="240" height="98" rx="6"/>
+                                <path class="secondary-link" d="M40 35H280"/>
+                                <circle cx="53" cy="25" r="3" fill="var(--cyan)"/><circle cx="64" cy="25" r="3" fill="#5b9bae"/><circle cx="75" cy="25" r="3" fill="#5b9bae"/>
+                                <rect class="node" x="55" y="46" width="55" height="20" rx="3"/><text class="muted-label" x="82" y="59" text-anchor="middle">DISPONIBLE</text>
+                                <rect class="soft-node" x="55" y="74" width="55" height="24" rx="3"/><text class="muted-label" x="82" y="89" text-anchor="middle">HÔTES</text>
+                                <path class="link" d="M127 94V80L143 83 157 59 174 72 190 51 206 57 224 39 252 47"/>
+                                <path class="secondary-link" d="M127 98H255M127 50V98"/>
+                                <text class="muted-label" x="187" y="108" text-anchor="middle">SUIVI DES SERVICES</text>
+                            </svg>
+                            <span class="project-index">PROJET 02</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-type">SUPERVISION &amp; EXPLOITATION</p>
+                            <h3>Suivi des équipements et services</h3>
+                            <p>Exemple de tableau de bord pour observer les équipements, repérer les alertes et faciliter le suivi des incidents. Les interventions incluent la supervision avec Zabbix, l’analyse des journaux et le reporting.</p>
+                            <div class="project-tags"><span>Zabbix</span><span>Jira</span><span>Analyse d’alertes</span></div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-art">
+                            <svg viewBox="0 0 320 125" role="img" aria-label="Schéma de services montrant un domaine relié à un serveur web, un partage de fichiers et un NAS">
+                                <rect class="node" x="117" y="12" width="86" height="28" rx="5"/><text x="160" y="30" text-anchor="middle">DOMAINE</text>
+                                <path class="link" d="M160 40V59M64 59H256M64 59V73M160 59V73M256 59V73"/>
+                                <rect class="soft-node" x="25" y="73" width="78" height="34" rx="5"/><text x="64" y="88" text-anchor="middle">SERVEUR IIS</text><text class="muted-label" x="64" y="100" text-anchor="middle">APPLICATION</text>
+                                <rect class="soft-node" x="121" y="73" width="78" height="34" rx="5"/><text x="160" y="88" text-anchor="middle">FICHIERS</text><text class="muted-label" x="160" y="100" text-anchor="middle">PARTAGE</text>
+                                <rect class="soft-node" x="217" y="73" width="78" height="34" rx="5"/><text x="256" y="88" text-anchor="middle">NAS</text><text class="muted-label" x="256" y="100" text-anchor="middle">STOCKAGE</text>
+                            </svg>
+                            <span class="project-index">PROJET 03</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-type">SERVEURS &amp; STOCKAGE</p>
+                            <h3>Mise en place de services Windows</h3>
+                            <p>Schéma récapitulatif des services auxquels j’ai contribué : domaine Windows, serveur IIS pour l’ERP, partage de fichiers et stockage NAS, dans le cadre du déploiement et du support des postes.</p>
+                            <div class="project-tags"><span>Windows Server</span><span>IIS</span><span>NAS</span></div>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-art">
+                            <svg viewBox="0 0 320 125" role="img" aria-label="Illustration d’environnements virtualisés reliés par une topologie de routage">
+                                <rect class="node" x="25" y="34" width="88" height="57" rx="6"/><text x="69" y="54" text-anchor="middle">HYPERVISEUR</text><text class="muted-label" x="69" y="69" text-anchor="middle">MACHINES VIRTUELLES</text><text class="muted-label" x="69" y="81" text-anchor="middle">VPS</text>
+                                <path class="link" d="M113 62H156M196 62H238"/>
+                                <circle class="soft-node" cx="176" cy="62" r="20"/><text x="176" y="65" text-anchor="middle">ROUTE</text>
+                                <circle class="node" cx="260" cy="39" r="16"/><text class="muted-label" x="260" y="42" text-anchor="middle">R1</text>
+                                <circle class="node" cx="260" cy="86" r="16"/><text class="muted-label" x="260" y="89" text-anchor="middle">R2</text>
+                                <path class="secondary-link" d="M196 58 245 42M196 67 245 83M260 55V70"/>
+                                <text class="muted-label" x="218" y="116" text-anchor="middle">OSPF · EIGRP</text>
+                            </svg>
+                            <span class="project-index">PROJET 04</span>
+                        </div>
+                        <div class="project-body">
+                            <p class="project-type">VIRTUALISATION &amp; ROUTAGE</p>
+                            <h3>Environnements virtualisés et VPS</h3>
+                            <p>Présentation de missions freelance autour de la virtualisation, des serveurs VPS, du câblage et de configurations de routage. Le schéma illustre le principe général sans représenter une topologie client réelle.</p>
+                            <div class="project-tags"><span>Proxmox</span><span>VPS</span><span>OSPF · EIGRP</span></div>
+                        </div>
+                    </article>
+                </div>
+                <p class="project-disclaimer">Les visuels sont des schémas illustratifs, pas des captures d’environnements réels. Ils ne contiennent aucune donnée interne d’organisation.</p>
+                <nav class="section-nav" aria-label="Continuer la visite"><a href="#contact">Contact suivant ↓</a></nav>
+            </section>
+
+            <section class="page-section" id="contact">
+                <div class="page-hero">
+                    <p class="eyebrow">ÉCHANGEONS</p>
+                    <h1>Me <span class="accent">contacter</span></h1>
+                    <p>Disponible pour échanger sur une opportunité ou un besoin en systèmes et réseaux.</p>
+                </div>
+                <section class="page-panel contact-card">
+                    <div class="contact-orbit" aria-hidden="true">EA</div>
+                    <p class="eyebrow">EULÈCHE STANISLAS AKPOVI · BÉNIN</p>
+                    <h2>Parlons de votre<br><span class="accent">prochain projet.</span></h2>
+                    <p class="contact-intro">N’hésitez pas à me contacter par courriel ou par téléphone.</p>
+                    <div class="contact-details">
+                        <a href="mailto:eulechea@gmail.com">eulechea@gmail.com <span aria-hidden="true">↗</span></a>
+                        <a href="tel:+2290167085475">+229 01 67 08 54 75 <span aria-hidden="true">↗</span></a>
+                    </div>
+                    <p class="contact-location">Bénin <i aria-hidden="true"></i> Français · Anglais</p>
+                </section>
+                <nav class="section-nav" aria-label="Navigation de fin de page"><a href="#accueil">↑ Retour en haut</a></nav>
+            </section>
+        </main>
+        <footer class="site-footer"><span>© Eulèche Stanislas Akpovi</span><a href="#accueil">Retour en haut ↑</a></footer>
+    </div>
+</body>
+</html>
